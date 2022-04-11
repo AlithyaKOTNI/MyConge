@@ -1,34 +1,66 @@
 <p style="color: green"><%= notice %></p>
+<div class="col-lg-12 col-xl-12">
+  <div class="card mb-30">
+    <div class="card-body">
+      <div class="card-header d-flex">
+        <h5 class="card-title w-50 float-left">Users</h5>
 
-<h1>Users</h1>
+        <div class="dropdown card-dropdown text-right w-50 float-right dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i data-feather="settings" class="icon"></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%=  link_to "New user", new_user_path , class: "dropdown-item" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="height-310">
+        <div class="table-responsive">
+          <table class="table m-0 text-vertical-middle">
+            <thead class="bort-none borpt-0">
+            <tr>
+              <th>First Name</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Code</th>
+              <th class="text-center">Status</th>
+              <th class="text-center">Action</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <% @users.each do |user| %>
+            <tr>
+              <td>
+                <%= user.first_name %>
+              </td>
+              <td>
+                <%= user.last_name %>
+              </td>
+              <td><%= user.email %></td>
+              <td><%= user.code %></td>
+              <td class="text-center">
+                <span class="badge badge_warning">Pending</span>
+              </td>
+              <td class="text-center">
 
 
-<table border="true">
-  <thead>
-  <tr>
-    <th>Code</th>
-    <th>Prenom</th>
-    <th>Nom</th>
-    <th>Email</th>
-    <th>Code</th>
-    <th>Action</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @users.each do |user| %>
-  <tr>
-    <td><%= user.code %></td>
-    <td><%= user.first_name %></td>
-    <td><%= user.last_name %></td>
-    <td><%= user.email %></td>
-    <td><%= user.rh %></td>
-    <td><%= link_to "Show", user %></td>
-  </tr>
-  
-  <% end %>
+                <%= link_to edit_user_path(user) ,{ :class => 'text-success mr-2', 'data-toggle' => 'tooltip', 'data-placement' => 'top', :title => 'Edit user' } do %>
+                  <i data-feather="edit-2" class="icon wh-15 mt-minus-3"></i>
+                <% end %>
+                <%= link_to user  do %>
+                  <i data-feather="eye" class="icon wh-15 mt-minus-3"></i>
+                <% end %>
 
-  </tbody>
+              </td>
+            </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-</table>
-
-<%= link_to "New user", new_user_path %>

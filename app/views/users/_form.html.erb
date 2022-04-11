@@ -11,32 +11,45 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
-  </div>
+    <div class="col-lg-12">
+      <div class="card mb-30">
+        <div class="card-body">
+          <div class="card-header">
+            <h5 class="card-title">New user</h5>
+          </div>
+          <form>
+                <div class="form-group">
+                  <%= form.label :first_name, style: "display: block" %>
+                  <%= form.text_field :first_name %>
+                </div>
 
-  <div>
-    <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
-  </div>
+                <div class="form-group">
+                  <%= form.label :last_name, style: "display: block" %>
+                  <%= form.text_field :last_name %>
+                </div>
 
-  <div>
-    <%= form.label :code, style: "display: block" %>
-    <%= form.text_field :code %>
-  </div>
+                <div class="form-group">
+                  <%= form.label :code, style: "display: block" %>
+                  <%= form.text_field :code %>
+                </div>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </div>
+                <div class="form-group">
+                  <%= form.label :email, style: "display: block" %>
+                  <%= form.text_field :email %>
+                </div>
 
-  <div>
-    <%= form.label :rh, style: "display: block" %>
-    <%= form.check_box :rh %>
-  </div>
+                <div class="form-group form-check">
+                  <%= form.check_box :rh ,class:"form-check-input" %>
+                  <%= form.label :rh, class: "form-check-label" %>
+                </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 <% end %>
+<!-- Vertical Form -->
